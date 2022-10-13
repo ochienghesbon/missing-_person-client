@@ -1,6 +1,7 @@
 import Navbar from "./Navbar";
 import PersonPage from "./PersonPage";
 import LoginForm from "./LoginForm";
+import SignUpForm from "./SignUpForm";
 
 function App() {
   return (
@@ -8,6 +9,7 @@ function App() {
       <Navbar />
       <PersonPage />
       <LoginForm/>
+      <SignUpForm/>
     </div>
   );
 }
