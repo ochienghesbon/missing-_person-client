@@ -2,11 +2,9 @@ import { useEffect, useState } from "react";
 import NewPersonForm from "./NewPersonForm";
 import PersonList from "./PersonList";
 import Search from "./Search";
-
 function PersonPage() {
-  const [Persons, setPersons] = useState([]);
+  const [persons, setPersons] = useState([]);
   const [searchPerson, setSearchPerson] = useState("");
-
   useEffect(() => {
     fetch("/people")
       .then((r) => r.json())
@@ -14,28 +12,23 @@ function PersonPage() {
         setPersons(data);
       });
   }, []);
-
   function handleAddPerson(newPerson) {
-    const PersonsArray = [...Persons, newPerson];
+    const PersonsArray = [...persons, newPerson];
     setPersons(PersonsArray);
   }
-
   function handleDeletePerson(id) {
-    const PersonsArray = Persons.filter((person) => person.id !== id);
+    const PersonsArray = persons.filter((person) => person.id !== id);
     setPersons(PersonsArray);
   }
-
   function handleUpdatePerson(updatedPerson) {
-    const PersonsArray = Persons.map((person) => {
+    const PersonsArray = persons.map((person) => {
       return person.id === updatedPerson.id ? updatedPerson : person;
     });
     setPersons(PersonsArray);
   }
-
-  const displayPeople = Persons.filter((person) => {
+  const displayPeople = persons.filter((person) => {
     return person.name.toLowerCase().includes(searchPerson.toLowerCase());
   });
-
   return (
     <main>
       <NewPersonForm onAddPerson={handleAddPerson} />
@@ -48,5 +41,12 @@ function PersonPage() {
     </main>
   );
 }
-
 export default PersonPage;
+
+
+
+
+
+
+
+
