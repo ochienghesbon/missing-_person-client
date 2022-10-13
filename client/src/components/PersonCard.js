@@ -1,6 +1,5 @@
-
 function PersonCard ({ person, onDeletePerson, onUpdatePerson }) {
-    const { id, name, image, age, is_missing: isMissing } = person;
+    const { id, name, image, age, description, location, is_missing: isMissing } = person;
   
     function handleDeleteClick() {
       fetch(`/people/${id}`, {
@@ -31,6 +30,8 @@ function PersonCard ({ person, onDeletePerson, onUpdatePerson }) {
         <img src={image} alt={name} />
         <h4>{name}</h4>
         <p>Age: {age}</p>
+        <p>Description: { description}</p>
+        <p>Location: { location}</p>
         {isMissing ? (
           <button className="primary" onClick={handleIsMissingClick}>
             Is Missing
@@ -44,3 +45,10 @@ function PersonCard ({ person, onDeletePerson, onUpdatePerson }) {
   }
   
   export default PersonCard ;
+
+
+
+
+
+
+
