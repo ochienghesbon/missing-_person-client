@@ -1,0 +1,52 @@
+import { useEffect, useState } from "react";
+import NewPersonForm from "./NewPersonForm";
+import PersonList from "./PersonList";
+import Search from "./Search";
+
+function PersonPage() {
+  const [Persons, setPersons] = useState([]);
+  const [searchPerson, setSearchPerson] = useState("");
+
+  useEffect(() => {
+    fetch("/people")
+      .then((r) => r.json())
+      .then((data) => {
+        setPersons(data);
+      });
+  }, []);
+
+  function handleAddPerson(newPerson) {
+    const PersonsArray = [...Persons, newPerson];
+    setPersons(PersonsArray);
+  }
+
+  function handleDeletePerson(id) {
+    const PersonsArray = Persons.filter((person) => person.id !== id);
+    setPersons(PersonsArray);
+  }
+
+  function handleUpdatePerson(updatedPerson) {
+    const PersonsArray = Persons.map((person) => {
+      return person.id === updatedPerson.id ? updatedPerson : person;
+    });
+    setPersons(PersonsArray);
+  }
+
+  const displayPeople = Persons.filter((person) => {
+    return person.name.toLowerCase().includes(searchPerson.toLowerCase());
+  });
+
+  return (
+    <main>
+      <NewPersonForm onAddPerson={handleAddPerson} />
+      <Search searchPerson={searchPerson} onSearchChange={setSearchPerson} />
+       <PersonList
+        persons={displayPeople}
+        onDeletePerson={handleDeletePerson}
+        onUpdatePerson={handleUpdatePerson}
+      />
+    </main>
+  );
+}
+
+export default PersonPage;
