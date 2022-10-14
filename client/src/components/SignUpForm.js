@@ -33,9 +33,9 @@ function SignUpForm({ onLogin }) {
     });
   }
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="inputformcontainer" onSubmit={handleSubmit}>
         <>
-        <label htmlFor="fistName">Firstname</label>
+        <label className="inputform" htmlFor="fistName">Firstname</label>
         <input
           type="text"
           id="fistName"
@@ -44,7 +44,7 @@ function SignUpForm({ onLogin }) {
         />
       </>
       <>
-        <label htmlFor="lastName">lastName</label>
+        <label className="inputform" htmlFor="lastName">lastName</label>
         <input
           type="text"
           id="lastName"
@@ -53,7 +53,7 @@ function SignUpForm({ onLogin }) {
         />
       </>
       <>
-        <label htmlFor="username">Username</label>
+        <label className="inputform" htmlFor="username">Username</label>
         <input
           type="text"
           id="username"
@@ -63,7 +63,7 @@ function SignUpForm({ onLogin }) {
         />
       </>
       <>
-        <label htmlFor="password">Password</label>
+        <label className="inputform" htmlFor="password">Password</label>
         <input
           type="password"
           id="password"
@@ -73,7 +73,7 @@ function SignUpForm({ onLogin }) {
         />
       </>
       <>
-        <label htmlFor="password">Password Confirmation</label>
+        <label className="inputform" htmlFor="password">Password Confirmation</label>
         <input
           type="password"
           id="password_confirmation"
@@ -83,7 +83,7 @@ function SignUpForm({ onLogin }) {
         />
       </>
       <>
-        <button type="submit">{isLoading ? "Loading..." : "Sign Up"}</button>
+        <button className="submitbutton" type="submit">{isLoading ? "Loading..." : "Sign Up"}</button>
       </>
       <>
         {/* {errors.map((err) => (
