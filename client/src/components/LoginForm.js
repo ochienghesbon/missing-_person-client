@@ -26,9 +26,9 @@ function LoginForm({ onLogin }) {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="inputformcontainer" onSubmit={handleSubmit}>
       <>
-        <label htmlFor="username">Username</label>
+        <label className="inputform" htmlFor="username">Username</label>
         <input
           type="text"
           id="username"
@@ -38,7 +38,7 @@ function LoginForm({ onLogin }) {
         />
       </>
       <>
-        <label htmlFor="password">Password</label>
+        <label className="inputform" htmlFor="password">Password</label>
         <input
           type="password"
           id="password"
@@ -48,7 +48,7 @@ function LoginForm({ onLogin }) {
         />
       </>
       <>
-        <button type="submit">
+        <button className="submitbutton" type="submit">
           {isLoading ? "Loading..." : "Login"}
         </button>
       </>
