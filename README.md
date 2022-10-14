@@ -27,7 +27,11 @@ Sign out
 
 # Frontend link 
  (https://github.com/ochienghesbon/missing-_person-client.git)
- 
+ <img src="./client/public/page1.png" width="900px" height="440px">  
+<img src="./client/public/page2.png" width="900px" height="440px">  
+<img src="./client/public/page3.png" width="900px" height="440px"> 
+<img src="./client/public/page4.png" width="900px" height="440px"> 
+
 
 ## Installation
 For one to use the website, you will have to git clone the repository link into your visual code and run the html file.
